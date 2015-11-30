@@ -1,5 +1,5 @@
 {
-    "name": "phpcommerce/ratepay-sdk",
+    "name": "phpcommerce/ratepay",
     "autoload": {
         "psr-0": { "": "src/" }
     },
