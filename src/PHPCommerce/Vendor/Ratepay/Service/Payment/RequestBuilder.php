@@ -23,18 +23,12 @@ class RequestBuilder
     protected $configuration;
 
     /**
-     * @var GatewayClientInterface
-     */
-    protected $gatewayClient;
-
-    /**
      * @var RequestType
      */
     protected $request;
 
-    public function __construct(RatepayConfiguration $ratepayConfiguration, GatewayClientInterface $gatewayClient) {
+    public function __construct(RatepayConfiguration $ratepayConfiguration) {
         $this->configuration = $ratepayConfiguration;
-        $this->gatewayClient = $gatewayClient;
         $this->request       = $this->createRequest();
     }
 
