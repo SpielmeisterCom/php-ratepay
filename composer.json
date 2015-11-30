@@ -1,5 +1,8 @@
 {
     "name": "phpcommerce/ratepay",
+    "type": "library",
+    "homepage": "https://github.com/phpcommerce/php-ratepay",
+    "license": "Apache2",
     "autoload": {
         "psr-0": { "": "src/" }
     },
