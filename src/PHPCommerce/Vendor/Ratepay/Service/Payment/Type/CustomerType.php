@@ -12,6 +12,8 @@ class CustomerType {
 
     const GENDER_FEMALE = 'F';
 
+    const GENDER_UNKNOWN = 'U';
+
     /**
      * Customer’s first name
      * @var string
