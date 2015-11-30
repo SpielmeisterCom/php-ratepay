@@ -1,0 +1,16 @@
+{
+    "name": "phpcommerce/ratepay-sdk",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "authors": [
+        {
+            "name": "Julian Haupt",
+            "email": "julian.haupt@hauptmedia.de"
+        }
+    ],
+    "require": {
+        "jms/serializer": "~1.1",
+        "guzzlehttp/guzzle": "~6.1"
+    }
+}
