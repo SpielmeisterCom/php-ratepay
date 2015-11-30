@@ -5,7 +5,6 @@
 This library makes heavy use of the JMS-Serializer library which itself makes heavy ues of the doctrine annotation features.
 
 To use the library in a standalone environment make sure to register the serializer source directory in the
-
 doctrine annotation registry.
 
 ```php
@@ -17,7 +16,6 @@ AnnotationRegistry::registerAutoloadNamespace(
 Sending a simple message:
 
 ```php
-
 //Client = Implementation of a guzzle 6.x Client
 
 $endpoint = 'https://gateway-int.ratepay.com/api/xml/1_0';
