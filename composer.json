@@ -4,7 +4,7 @@
     "homepage": "https://github.com/phpcommerce/php-ratepay",
     "license": "Apache2",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": { "PHPCommerce": "src/" }
     },
     "authors": [
         {
