@@ -3,12 +3,14 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class PaymentResponseType {
     /**
      * Customer's chosen payment method
      * @XmlAttribute
      * @var string
+     * @Type("string")
      */
     protected $method;
 
@@ -16,6 +18,7 @@ class PaymentResponseType {
      * Payment Currency
      * @XmlAttribute
      * @var string
+     * @Type("string")
      */
     protected $currency;
 
@@ -23,12 +26,14 @@ class PaymentResponseType {
     /**
      * Amont to be paid by the customer
      * @var float
+     * @Type("double")
      */
     protected $amount;
 
     /**
      * @var InstallmentDetailsType
      * @SerializedName("installment-details")
+     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InstallmentDetailsType")
      */
     protected $installmentDetails;
 
@@ -36,6 +41,7 @@ class PaymentResponseType {
      * Descriptor (narrative) to identify the transaction on documents and bank transfers
      * (German: "Verwendungszweck")
      * @var string
+     * @Type("string")
      */
     protected $descriptor;
 
