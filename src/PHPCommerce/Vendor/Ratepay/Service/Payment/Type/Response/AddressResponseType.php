@@ -3,11 +3,13 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class AddressResponseType {
     /**
      * Street name (normalized)
      * @var string
+     * @Type("string")
      */
     protected $street;
 
@@ -15,12 +17,14 @@ class AddressResponseType {
      * Street number (normalized)
      * @var string
      * @SerializedName("street-number")
+     * @Type("string")
      */
     protected $streetNumber;
 
     /**
      * Zip code (normalized)
      * @var string
+     * @Type("string")
      * @SerializedName("zip-code")
      */
     protected $zipCode;
@@ -28,6 +32,7 @@ class AddressResponseType {
     /**
      * City (normalized)
      * @var string
+     * @Type("string")
      */
     protected $city;
 

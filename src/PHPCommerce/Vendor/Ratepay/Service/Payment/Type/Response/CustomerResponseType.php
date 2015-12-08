@@ -11,6 +11,7 @@ class CustomerResponseType {
     /**
      * Contains customer's normalized billing address
      * @var AddressResponseType[]
+     * @Type("array<PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\AddressResponseType>")
      * @XmlList(entry="address")
      */
     protected $addresses;
