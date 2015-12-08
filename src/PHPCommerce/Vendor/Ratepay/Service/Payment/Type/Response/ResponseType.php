@@ -1,18 +1,18 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
 
 use JMS\Serializer\Annotation\Type;
 
 class ResponseType {
     /**
      * @var ResponseHeadType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ResponseHeadType")
+     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseHeadType")
      */
     protected $head;
 
     /**
      * @var ResponseContentType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ResponseContentType")
+     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseContentType")
      */
     protected $content;
 

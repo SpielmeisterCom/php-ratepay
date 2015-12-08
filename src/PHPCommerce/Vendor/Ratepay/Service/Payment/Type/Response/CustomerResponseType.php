@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
 
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ContactsType;
 use JMS\Serializer\Annotation\XmlRoot;
