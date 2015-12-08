@@ -2,11 +2,14 @@
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
 
 use GuzzleHttp\ClientInterface;
+use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\SerializerBuilder;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\PaymentPermissionResponseType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ResponseType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
+
 
 class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface {
     /**
@@ -43,7 +46,13 @@ class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface 
     public function postRequest(RequestType $request)
     {
 
-        $serializer = SerializerBuilder::create()->build();
+        $serializer = SerializerBuilder::create()
+            ->addDefaultHandlers()
+            ->configureHandlers(function(HandlerRegistry $registry) {
+                $registry->registerSubscribingHandler(new ResponseContentTypeHandler());
+            })
+            ->build();
+
         $xmlContent = $serializer->serialize($request, 'xml');
 
         if($this->logger) {
@@ -70,22 +79,22 @@ class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface 
         $rawResponse = $res->getBody()->getContents();
 
         if($this->logger) {
-            $this->logger->debug(
-                "RatePAY Gateway Client received XML response with status code {statuscode}\n\n{response}",
-                [
-                    'statuscode'    => $res->getStatusCode(),
-                    'response'      => $rawResponse
-                ]
-            );
-        }
+             $this->logger->debug(
+                 "RatePAY Gateway Client received XML response with status code {statuscode}\n\n{response}",
+                 [
+                     'statuscode'    => $res->getStatusCode(),
+                     'response'      => $rawResponse
+                 ]
+             );
+         }
 
-        if($res->getStatusCode() != 200) {
-            throw new \RuntimeException("Remote Server returned status code != 200");
-        }
+         if($res->getStatusCode() != 200) {
+             throw new \RuntimeException("Remote Server returned status code != 200");
+         }
 
         $response = $serializer->deserialize(
             $rawResponse,
-            'PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ResponseType',
+            'PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType',
             'xml'
         );
 
