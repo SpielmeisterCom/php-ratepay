@@ -8,9 +8,9 @@ use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InstallmentCalculationType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InvoicingType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\OperationType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PaymentType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestContentType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestHeadType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestContentType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestHeadType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ShoppingBasketType;
 
 class RequestBuilder

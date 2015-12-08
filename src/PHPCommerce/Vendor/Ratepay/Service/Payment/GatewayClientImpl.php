@@ -3,9 +3,10 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
 
 use GuzzleHttp\ClientInterface;
 use JMS\Serializer\Handler\HandlerRegistry;
+use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\PaymentPermissionResponseType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -27,10 +28,16 @@ class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface 
      */
     protected $endpoint;
 
+    /**
+     * @var Serializer
+     */
+    protected $serializer;
+
     public function __construct(ClientInterface $client, $endpoint)
     {
         $this->client = $client;
         $this->endpoint = $endpoint;
+        $this->serializer = $this->createSerializer();
     }
 
     public function setLogger(LoggerInterface $logger)
@@ -40,24 +47,28 @@ class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface 
     }
 
     /**
-     * @param RequestType $request
-     * @return ResponseType
+     * @return Serializer
      */
-    public function postRequest(RequestType $request)
-    {
-
-        $serializer = SerializerBuilder::create()
+    protected function createSerializer() {
+        return SerializerBuilder::create()
             ->addDefaultHandlers()
             ->configureHandlers(function(HandlerRegistry $registry) {
                 $registry->registerSubscribingHandler(new ResponseContentTypeHandler());
             })
             ->build();
+    }
 
-        $xmlContent = $serializer->serialize($request, 'xml');
+    /**
+     * @param RequestType $request
+     * @return ResponseType
+     */
+    public function postRequest(RequestType $request)
+    {
+        $xmlContent = $this->serializer->serialize($request, 'xml');
 
         if($this->logger) {
             $this->logger->debug(
-                "RatePAY Gateway Client posting XML content to {endpoint}\n\n{request}",
+                "RatePAY Gateway Client posting XML content to {endpoint}\n\n{request}\n",
                 [
                     'endpoint' => $this->endpoint,
                     'request'  => $xmlContent
@@ -92,7 +103,7 @@ class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface 
              throw new \RuntimeException("Remote Server returned status code != 200");
          }
 
-        $response = $serializer->deserialize(
+        $response = $this->serializer->deserialize(
             $rawResponse,
             'PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType',
             'xml'

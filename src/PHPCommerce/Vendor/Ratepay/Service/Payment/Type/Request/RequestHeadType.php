@@ -1,6 +1,8 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request;
 use JMS\Serializer\Annotation\SerializedName;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CredentialType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\OperationType;
 
 class RequestHeadType {
     /**

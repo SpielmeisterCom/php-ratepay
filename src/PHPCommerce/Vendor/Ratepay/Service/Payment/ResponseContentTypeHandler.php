@@ -27,6 +27,10 @@ class ResponseContentTypeHandler implements SubscribingHandlerInterface
         $operation = $visitor->getCurrentObject()->getHead()->getOperation();
 
         switch($operation) {
+            case OperationType::OPERATION_PAYMENT_INIT:
+                //do nothing because the PAYMENT_INIT response does not contain a content section
+                break;
+
             case OperationType::OPERATION_PAYMENT_REQUEST:
                 $type['name'] = 'PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\PaymentRequestResponseType';
                 return $context->accept($data, $type);
