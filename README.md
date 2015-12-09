@@ -58,7 +58,7 @@ There are 2 reasons:
     The current request does not match to the state of the transaction.
     For example: The return of articles is not allowed before a CONFIRMATION_DELIVER was sent.
 
-## Library Usage
+## JMS Serializer Library Usage Note
 
 This library makes heavy use of the JMS-Serializer library which itself makes heavy ues of the doctrine annotation features.
 
@@ -71,7 +71,11 @@ AnnotationRegistry::registerAutoloadNamespace(
     __DIR__ . "/vendor/jms/serializer/src");
 ```
 
-Sending a simple message:
+## Example for a RatePAY checkout
+
+You need to send at least the following gateway operations: 
+
+PAYMENT_INIT -> PAYMENT_REQUEST -> PAYMENT_CONFIRM
 
 ```php
 //Client = Implementation of a guzzle 6.x Client
@@ -92,11 +96,9 @@ $req = $requestBuilder
     ->build();
 
 $res = $client->postRequest($req);
-```
 
-## Sending a PAYMENT_REQUEST message
+//check error code in $res ...
 
-```php
 $req = $requestBuilder
     ->operation(OperationType::OPERATION_PAYMENT_REQUEST)
     ->transactionId($res->getHead()->getTransactionId())
@@ -156,4 +158,14 @@ $req = $requestBuilder
 
 
 $res = $client->postRequest($req);
+
+//check error code in $res ...
+
+$req = $requestBuilder
+    ->operation(OperationType::OPERATION_PAYMENT_CONFIRM)
+    ->transactionId($res->getHead()->getTransactionId())
+    ->build();
+    
+$res = $client->postRequest($req);
+
 ```
