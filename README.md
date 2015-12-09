@@ -9,6 +9,12 @@
 | PAYMENT_REQUEST | M | Check the customer and order details, perform risk scoring, return either customer acceptance or rejection. |
 | PAYMENT_CONFIRM | M (if response of the PAYMENT_REQUEST is positive) | Finalize the payment process. |
 | CONFIRMATION_DELIVER (“CD”) | M (if order has not been cancelled) | Immediately after the ordered goods have been delivered to the customer, the merchant must send a Confirmation Deliver message to the RatePAY Gateway. |
+| PAYMENT_CHANGE cancellation | O | Merchant cancels some or all items of the order |
+| PAYMENT_CHANGE return | O | Merchant returns some or all items of the order |
+| PAYMENT_CHANGE change-order | O | Merchant or customer adds items to the order |
+| PAYMENT_CHANGE credit | O | Merchant adds a credit (discount) or debit (adjustment charge) to the order |
+| CONFIGURATION_REQUEST | O | Retrieve the stored configuration parameters for a certain merchant profile. |
+| CALCULATION_REQUEST | O | Provides an installment plan depending on the request parameters and stored parameters of the merchant profile. |
 
 ## Usage
 
