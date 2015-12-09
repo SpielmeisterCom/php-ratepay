@@ -5,6 +5,14 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 class ResponseHeadType {
+    const RESPONSE_TYPE_STATUS_RESPONSE     = 'PAYMENT_STATUS_RESPONSE';
+
+    const RESPONSE_TYPE_PAYMENT_PRODUCTS    = 'PAYMENT_PRODUCTS';
+
+    const RESPONSE_TYPE_PAYMENT_PERMISSION  = 'PAYMENT_PERMISSION';
+
+    const RESPONSE_TYPE_STATUS_ERROR        = 'STATUS_ERROR';
+
     /**
      * @var string
      * @SerializedName("system-id")
