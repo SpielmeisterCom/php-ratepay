@@ -1,6 +1,6 @@
 # php-ratepay
 
-## RatePAY Gateway operations
+## RatePAY gateway operations
 
 | Gateway operation | Mandatory / Optional | Purpose |
 |---|---|---|
@@ -16,7 +16,49 @@
 | CONFIGURATION_REQUEST | O | Retrieve the stored configuration parameters for a certain merchant profile. |
 | CALCULATION_REQUEST | O | Provides an installment plan depending on the request parameters and stored parameters of the merchant profile. |
 
-## Usage
+## Result Codes
+
+| Operation | Success | Rejection | Technical Error | Warning | Additional Information |
+|---|---|---|---|---|---|
+| PAYMENT_INIT | 350 | - | 150 | - | - |
+| PAYMENT_QUERY | 402 | 401 | 150 | 405 | The PAYMENT_QUERY needs a different evaluation. To determine if a following PAYMENT_REQUEST will be successful, the corresponding product has to be available. |
+| PAYMENT_REQUEST | 402 | 401 | 150 | 405 | - |
+| PAYMENT_CONFIRM | 400 | 401 | 150 | 405 | - |
+| PAYMENT_CHANGE | 403 | 401 | 150 | 405 | - |
+| CONFIRMATION_DELIVER | 404 | 401 | 150 | 405 | - |
+| CALCULATION_REQUEST | 502 | 503 | 150 | - | Note when a 503 is triggered: Although sending the same CALCULATION_REQUEST again is possible, the result will always be the same. This result indicates a request with wrong parameters. |
+| CONFIGURATION_REQUEST | 500 | - | 150 | -  | - |
+
+## Explanation of RatePAY gateway errors
+
+### Success
+The operation was successful and the shop is allowed to send additional requests for this specific transaction.
+
+### Rejection
+The operation was not successful. The transaction is closed and no further requests for this specific transaction-id will be accepted.
+
+### Technical Error
+A technical error occurred. In most cases this means, that a value within the request is not valid.
+
+Especially with Reason Codes 102 (character encoding error) and 200 (validation failed) it can be assumed that the customer’s data is not valid.
+
+The shop may give the customer the chance to correct his input data and send the request again with the same transaction-id.
+
+### Warning
+
+This result states that the workflow of the sending system is incorrect. Requests with the result “Warning” will not be processed.
+
+There are 2 reasons:
+
+-   transaction-id in use (Reason Code 310)
+    The Gateway already is processing a request for this specific transaction-id at the same time.
+    This occurs if the sending system sends the same request more than once.
+    
+-   wrong operation order (Reason Code 309)
+    The current request does not match to the state of the transaction.
+    For example: The return of articles is not allowed before a CONFIRMATION_DELIVER was sent.
+
+## Library Usage
 
 This library makes heavy use of the JMS-Serializer library which itself makes heavy ues of the doctrine annotation features.
 
