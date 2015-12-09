@@ -1,5 +1,15 @@
 # php-ratepay
 
+## RatePAY Gateway operations
+
+| Gateway operation | Mandatory / Optional | Purpose |
+|---|---|---|
+| PAYMENT_INIT | M | Initialize the transaction and get a valid transaction-id. |
+| PAYMENT_QUERY full | O | Check the customer and order details, perform a configurable risk scoring, retrieve the payment products permitted in the given context. The PAYMENT_QUERY full can be booked with a guaranteed acceptance. This means that all products given back will be accepted by a following PAYMENT_REQUEST. |
+| PAYMENT_REQUEST | M | Check the customer and order details, perform risk scoring, return either customer acceptance or rejection. |
+| PAYMENT_CONFIRM | M (if response of the PAYMENT_REQUEST is positive) | Finalize the payment process. |
+| CONFIRMATION_DELIVER (“CD”) | M (if order has not been cancelled) | Immediately after the ordered goods have been delivered to the customer, the merchant must send a Confirmation Deliver message to the RatePAY Gateway. |
+
 ## Usage
 
 This library makes heavy use of the JMS-Serializer library which itself makes heavy ues of the doctrine annotation features.
