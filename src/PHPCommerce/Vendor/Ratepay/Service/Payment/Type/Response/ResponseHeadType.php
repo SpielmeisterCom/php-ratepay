@@ -3,6 +3,8 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ProcessingType;
 
 class ResponseHeadType {
     const RESPONSE_TYPE_STATUS_RESPONSE     = 'PAYMENT_STATUS_RESPONSE';
