@@ -2,15 +2,12 @@
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
 
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RatepayException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RejectionErrorException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RejectionException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\TechnicalErrorException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\WarningException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\OperationType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerInterface;
 
 class RatepayBrokerImpl implements RatepayBrokerInterface {
 
