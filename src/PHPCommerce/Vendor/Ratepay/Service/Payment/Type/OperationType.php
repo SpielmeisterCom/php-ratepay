@@ -23,6 +23,15 @@ class OperationType
 
     const OPERATION_SUBTYPE_FULL = 'full';
 
+    const OPERATION_SUBTYPE_CANCELLATION  = 'cancellation';
+
+    const OPERATION_SUBTYPE_RETURN = 'return';
+
+    const OPERATION_SUBTYPE_CREDIT = 'credit';
+
+    const OPERATION_SUBTYPE_CHANGE_ORDER = 'change-order';
+
+
     /**
      * @XmlAttribute
      * @var string

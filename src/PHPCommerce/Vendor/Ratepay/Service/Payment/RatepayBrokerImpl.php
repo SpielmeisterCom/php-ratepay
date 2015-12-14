@@ -117,6 +117,30 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
         $this->validateResponse($res, 400, 401, 150, 405);
     }
 
+    public function paymentChange($transactionId, $subtype, RequestType $req) {
+        $allowedSubTypes = [
+            OperationType::OPERATION_SUBTYPE_CANCELLATION,
+            OperationType::OPERATION_SUBTYPE_RETURN,
+            OperationType::OPERATION_SUBTYPE_CREDIT,
+            OperationType::OPERATION_SUBTYPE_CHANGE_ORDER
+        ];
+
+        if(!in_array($subtype, $allowedSubTypes)) {
+            throw new \RuntimeException("type must be one of ".implode(",", $allowedSubTypes));
+        }
+
+        $req->getHead()->setTransactionId($transactionId);
+        $req->getHead()->getOperation()->setValue(OperationType::OPERATION_PAYMENT_CHANGE);
+        $req->getHead()->getOperation()->setSubtype($subtype);
+
+        $res = $this->gatewayClient->postRequest($req);
+
+        $this->validateResponse($res, 403, 401, 150, 405);
+
+        return $res;
+
+    }
+
     public function configurationRequest() {
         $req = $this->requestBuilder
             ->operation(OperationType::OPERATION_CONFIGURATION_REQUEST)
