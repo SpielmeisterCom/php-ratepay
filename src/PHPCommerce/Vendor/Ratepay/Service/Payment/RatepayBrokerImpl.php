@@ -3,6 +3,7 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
 
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RatepayException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RejectionErrorException;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RejectionException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\TechnicalErrorException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\WarningException;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\OperationType;
