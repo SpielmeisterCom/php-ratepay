@@ -1,6 +1,7 @@
 <?php
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
 
 class ExternalType {
     const CONSUMER_CLASSIFICATION_NEGATIVE = 'negative';
@@ -25,6 +26,7 @@ class ExternalType {
      * on the RatePAY workflow
      * @var string
      * @Type("string")
+     * @SerializedName("merchant-consumer-id")
      */
     protected $merchantConsumerId;
 
