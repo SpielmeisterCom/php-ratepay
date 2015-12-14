@@ -121,6 +121,46 @@ try {
 }
 ```
 
+## Triggering a payment change request
+```php
+    $paymentChange = $ratepayBroker->getRequestBuilder()
+        ->shoppingBasket(
+            (new ShoppingBasketType())
+                ->setAmount(1000)
+                ->setCurrency('EUR')
+                ->setItems([
+                    (new ShoppingBasketItemType())
+                        ->setArticleNumber("123")
+                        ->setQuantity("10")
+                        ->setUnitPriceGross(100)
+                        ->setItem("Article 1")
+                ])
+        )
+        ->build();
+
+    $res = $ratepayBroker->paymentChange($transactionId, OperationType::OPERATION_SUBTYPE_CHANGE_ORDER, $paymentChange);
+```
+
+## Triggering a confirmation deliver request
+```php
+    $confirmationDeliver = $ratepayBroker->getRequestBuilder()
+        ->shoppingBasket(
+            (new ShoppingBasketType())
+                ->setAmount(1000)
+                ->setCurrency('EUR')
+                ->setItems([
+                    (new ShoppingBasketItemType())
+                        ->setArticleNumber("123")
+                        ->setQuantity("10")
+                        ->setUnitPriceGross(100)
+                        ->setItem("Article 1")
+                ])
+        )
+        ->build();
+
+    $res = $ratepayBroker->confirmationDeliver($transactionId, $confirmationDeliver);
+```
+
 ## RatePAY gateway operations
 
 | Gateway operation | Mandatory / Optional | Purpose |
