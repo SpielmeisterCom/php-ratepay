@@ -37,4 +37,12 @@ interface RatepayBrokerInterface {
      * @return ResponseType
      */
     public function paymentConfirm($transactionId);
+
+    /**
+     * @throws RatepayException
+     * @throws TechnicalErrorException
+     * @return ResponseType
+     */
+    public function configurationRequest();
+
 }

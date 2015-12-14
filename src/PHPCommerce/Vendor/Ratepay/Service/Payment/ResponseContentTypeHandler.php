@@ -42,6 +42,11 @@ class ResponseContentTypeHandler implements SubscribingHandlerInterface
                 return $context->accept($data, $type);
                 break;
 
+            case OperationType::OPERATION_CONFIGURATION_REQUEST:
+                $type['name'] = 'PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ConfigurationResponseType';
+                return $context->accept($data, $type);
+                break;
+
             default:
                 throw new RuntimeException("Unknown Operation: " . $operation);
                 break;

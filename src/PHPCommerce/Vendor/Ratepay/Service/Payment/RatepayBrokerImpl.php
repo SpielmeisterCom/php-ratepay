@@ -107,7 +107,6 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
 
     public function paymentConfirm($transactionId)
     {
-        //Payment Confirm
         $req = $this->requestBuilder
             ->operation(OperationType::OPERATION_PAYMENT_CONFIRM)
             ->transactionId($transactionId)
@@ -116,6 +115,18 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
         $res = $this->gatewayClient->postRequest($req);
 
         $this->validateResponse($res, 400, 401, 150, 405);
+    }
+
+    public function configurationRequest() {
+        $req = $this->requestBuilder
+            ->operation(OperationType::OPERATION_CONFIGURATION_REQUEST)
+            ->build();
+
+        $res = $this->gatewayClient->postRequest($req);
+
+        $this->validateResponse($res, 500, null, 150, null);
+
+        return $res;
     }
 
     /**
