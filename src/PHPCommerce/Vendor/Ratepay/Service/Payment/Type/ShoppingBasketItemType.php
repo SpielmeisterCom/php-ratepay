@@ -2,12 +2,14 @@
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 
 class ShoppingBasketItemType
 {
     /**
      * Article description
      * @var string
+     * @XmlValue
      */
     protected $item;
 
