@@ -160,4 +160,26 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
     {
         return $this->requestBuilder;
     }
+
+    /**
+     * @param $transactionId
+     * @param $subType
+     * @param RequestType $req
+     * @throws RatepayException
+     * @throws TechnicalErrorException
+     * @throws WarningException
+     * @throws RejectionException
+     * @return ResponseType
+     */
+    public function confirmationDeliver($transactionId, RequestType $req)
+    {
+        $req->getHead()->setTransactionId($transactionId);
+        $req->getHead()->getOperation()->setValue(OperationType::OPERATION_CONFIRMATION_DELIVER);
+
+        $res = $this->gatewayClient->postRequest($req);
+
+        $this->validateResponse($res, 404, 401, 150, 405);
+
+        return $res;
+    }
 }
