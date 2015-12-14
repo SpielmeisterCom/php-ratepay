@@ -102,8 +102,15 @@ try {
         )
         ->build();
 
-    $ratepayBroker->paymentRequest($transactionId, $paymentRequest);
+    $res = $ratepayBroker->paymentRequest($transactionId, $paymentRequest);
 
+    /** @var PaymentRequestResponseType $paymentRequestResponse */
+    $paymentRequestResponse = $res->getContent();
+
+    $descriptor = $paymentRequestResponse->getPayment()->getDescriptor();
+    
+    // save $descriptor for your reference
+			
     $ratepayBroker->paymentConfirm($transactionId);
 
 } catch (RatepayException $e) {
