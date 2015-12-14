@@ -8,6 +8,30 @@ You need to send at least the following gateway operations:
 PAYMENT_INIT -> PAYMENT_REQUEST -> PAYMENT_CONFIRM
 
 ```php
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use GuzzleHttp\Client;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RatepayException;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\GatewayClientImpl;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\RatepayBrokerImpl;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\RatepayConfiguration;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\RatepayCredential;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\AddressType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ContactsType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CustomerType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PaymentType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestHeadType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PhoneType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ShoppingBasketItemType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ShoppingBasketType;
+
+require_once('vendor/autoload.php');
+
+AnnotationRegistry::registerAutoloadNamespace(
+    'JMS\Serializer\Annotation',
+    __DIR__ . "/vendor/jms/serializer/src");
+    
 //Client := Guzzle 6.x compatible client
 $client = new GatewayClientImpl(new Client(), 'https://gateway-int.ratepay.com/api/xml/1_0');
 
