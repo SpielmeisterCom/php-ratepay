@@ -11,7 +11,7 @@ use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
-class RatepayBrokerImpl implements RatepayBrokerInterface, LoggerAwareInterface {
+class RatepayBrokerImpl implements RatepayBrokerInterface {
 
     /**
      * @var RatepayConfiguration
@@ -121,21 +121,10 @@ class RatepayBrokerImpl implements RatepayBrokerInterface, LoggerAwareInterface 
     }
 
     /**
-     * Sets a logger instance on the object
-     *
-     * @param LoggerInterface $logger
-     * @return null
-     */
-    public function setLogger(LoggerInterface $logger)
-    {
-        // TODO: Implement setLogger() method.
-    }
-
-    /**
      * @return RequestBuilder
      */
     public function getRequestBuilder()
     {
-        // TODO: Implement getRequestBuilder() method.
+        return $this->requestBuilder;
     }
 }
