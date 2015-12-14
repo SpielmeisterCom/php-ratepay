@@ -8,6 +8,6 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Exception;
  * Class RejectionErrorException
  * @package PHPCommerce\Vendor\Ratepay\Service\Payment\Exception
  */
-class RejectionErrorException extends RatepayException {
+class RejectionException extends RatepayException {
 
 }
