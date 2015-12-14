@@ -34,7 +34,7 @@ try {
             ->setFirstName("Max")
             ->setLastName("Mustermann")
             ->setGender(CustomerType::GENDER_MALE)
-            ->setDateOfBirth(new DateTime("2005-01-01"))
+            ->setDateOfBirth(new DateTime("1985-01-01"))
             ->setIpAddress("123.123.123.123")
             ->setCustomerAllowCreditInquiry(true)
             ->setContacts(
