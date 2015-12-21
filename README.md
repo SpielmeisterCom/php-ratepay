@@ -161,6 +161,13 @@ try {
     $res = $ratepayBroker->confirmationDeliver($transactionId, $confirmationDeliver);
 ```
 
+## RatePAY Gateway Endpoints
+
+The RatePAY Gateway system is implemented as a XML over HTTP webservice. It can be accessed via SSL:
+
+- Test: https://gateway-int.ratepay.com/api/xml/1_0
+- Production: https://gateway.ratepay.com/api/xml/1_0
+
 ## RatePAY gateway operations
 
 | Gateway operation | Mandatory / Optional | Purpose |
