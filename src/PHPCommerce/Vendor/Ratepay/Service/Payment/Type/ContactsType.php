@@ -53,7 +53,7 @@ class ContactsType {
     /**
      * @param PhoneType $phone
      */
-    public function setPhone(PhoneType $phone)
+    public function setPhone(PhoneType $phone = null)
     {
         $this->phone = $phone;
         return $this;
@@ -70,7 +70,7 @@ class ContactsType {
     /**
      * @param PhoneType $fax
      */
-    public function setFax(PhoneType $fax)
+    public function setFax(PhoneType $fax = null)
     {
         $this->fax = $fax;
         return $this;
@@ -87,7 +87,7 @@ class ContactsType {
     /**
      * @param PhoneType $mobile
      */
-    public function setMobile(PhoneType $mobile)
+    public function setMobile(PhoneType $mobile = null)
     {
         $this->mobile = $mobile;
         return $this;
