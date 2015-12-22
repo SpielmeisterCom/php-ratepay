@@ -2,6 +2,7 @@
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Class InvoicingType
@@ -14,6 +15,7 @@ class InvoicingType
     /**
      * ID (name or number) of the invoice, defined by the merchant
      * @var string
+     * @SerializedName("invoice-id")
      */
     protected $invoiceId;
 
@@ -24,6 +26,7 @@ class InvoicingType
      * RatePAY beckend system will set the delivery-date to the invoice-date
      * @var DateTime
      * @Type("DateTime<'Y-m-d'>")
+     * @SerializedName("invoice-date")
      */
     protected $invoiceDate;
 
@@ -33,6 +36,7 @@ class InvoicingType
      * CONFIRMATION_DELIVER. The delivery-date must not be an editable field in the merchant's admin GUI
      * @var DateTime
      * @Type("DateTime<'Y-m-d'>")
+     * @SerializedName("delivery-date")
      */
     protected $deliveryDate;
 
@@ -40,6 +44,7 @@ class InvoicingType
      * Date by which the customer must settle the payment (German: "dynamische Fälligkeit"); defined by the merchant
      * @var DateTime
      * @Type("DateTime<'Y-m-d'>")
+     * @SerializedName("due-date")
      */
     protected $dueDate;
 
