@@ -17,6 +17,7 @@ class ExternalType {
      * must be passed to RatePAY
      * @var string
      * @Type("string")
+     * @SerializedName("order-id")
      */
     protected $orderId;
 
