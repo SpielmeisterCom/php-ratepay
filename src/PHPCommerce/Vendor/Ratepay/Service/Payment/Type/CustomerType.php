@@ -1,6 +1,7 @@
 <?php
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
 
+use DateTime;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ContactsType;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\SerializedName;
@@ -379,7 +380,7 @@ class CustomerType {
     /**
      * @param DateTime $dateOfBirth
      */
-    public function setDateOfBirth($dateOfBirth)
+    public function setDateOfBirth(DateTime $dateOfBirth = null)
     {
         $this->dateOfBirth = $dateOfBirth;
         return $this;

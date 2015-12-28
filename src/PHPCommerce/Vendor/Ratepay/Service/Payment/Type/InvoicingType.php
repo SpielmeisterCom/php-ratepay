@@ -1,6 +1,7 @@
 <?php
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
 
+use DateTime;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 
@@ -78,7 +79,7 @@ class InvoicingType
      * @param DateTime $invoiceDate
      * @return $this
      */
-    public function setInvoiceDate($invoiceDate)
+    public function setInvoiceDate(DateTime $invoiceDate = null)
     {
         $this->invoiceDate = $invoiceDate;
         return $this;
@@ -114,7 +115,7 @@ class InvoicingType
      * @param DateTime $dueDate
      * @return $this
      */
-    public function setDueDate($dueDate)
+    public function setDueDate(DateTime $dueDate = null)
     {
         $this->dueDate = $dueDate;
         return $this;
