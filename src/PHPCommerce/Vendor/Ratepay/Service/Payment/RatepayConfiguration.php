@@ -18,6 +18,8 @@ class RatepayConfiguration
 
     protected $gatewayUrl;
 
+    protected $deviceIdentSId;
+
     protected $loggingPath;
 
     /**
@@ -139,5 +141,19 @@ class RatepayConfiguration
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDeviceIdentSId()
+    {
+        return $this->deviceIdentSId;
+    }
 
+    /**
+     * @param mixed $deviceIdentSId
+     */
+    public function setDeviceIdentSId($deviceIdentSId)
+    {
+        $this->deviceIdentSId = $deviceIdentSId;
+    }
 }
