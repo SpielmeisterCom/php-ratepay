@@ -1,20 +1,25 @@
 {
-    "name": "phpcommerce/ratepay",
-    "type": "library",
-    "homepage": "https://github.com/phpcommerce/php-ratepay",
-    "license": "Apache2",
-    "autoload": {
-        "psr-0": { "PHPCommerce": "src/" }
-    },
-    "authors": [
-        {
-            "name": "Julian Haupt",
-            "email": "julian.haupt@hauptmedia.de"
-        }
-    ],
-    "require": {
-        "jms/serializer": "~1.1",
-        "guzzlehttp/guzzle": "~6.1",
-        "psr/log": "~1.0"
+  "name": "phpcommerce/ratepay",
+  "type": "library",
+  "homepage": "https://github.com/phpcommerce/php-ratepay",
+  "license": "MIT",
+  "autoload": {
+    "psr-0": {
+      "PHPCommerce": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Julian Haupt",
+      "email": "julian.haupt@hauptmedia.de"
+    }
+  ],
+  "require": {
+    "jms/serializer": "~1.1",
+    "guzzlehttp/guzzle": "~6.1",
+    "psr/log": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.6.7"
+  }
 }
