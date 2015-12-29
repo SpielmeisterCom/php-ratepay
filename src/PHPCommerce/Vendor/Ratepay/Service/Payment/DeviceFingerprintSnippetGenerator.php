@@ -8,24 +8,27 @@ class DeviceFingerprintSnippetGenerator {
      */
     protected $deviceIdentSId;
 
-    /**
-     * @var string
-     */
-    protected $customerId;
-
-    public function __construct($deviceIdentSId, $customerId) {
+    public function __construct($deviceIdentSId) {
         $this->deviceIdentSId = $deviceIdentSId;
-        $this->customerId = $customerId;
+    }
+
+    /**
+     * Generates a DeviceIdentToken for the given customerId
+     * @param $customerId
+     * @return string
+     */
+    public static function generateDeviceIdentToken($customerId) {
+        $timestamp = microtime();
+        $deviceIdentToken = md5($customerId . "_" . $timestamp);
+        return $deviceIdentToken;
     }
 
     /**
      * Returns an HTML snippet which must be injected in the checkout page
+     * @param string $deviceIdentToken - Device Ident Token which must be generated via the generateDeviceIdentToken() function
      * @return string
      */
-    public function getSnippet() {
-        $timestamp = microtime();
-        $deviceIdentToken = md5($this->customerId . "_" . $timestamp);
-
+    public function generateJavascriptSnippet($deviceIdentToken) {
         $snippet   = sprintf(
             "<script language=\"JavaScript\">var di = %s;</script>",
             json_encode([
