@@ -2,6 +2,7 @@
 namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
 
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CredentialType;
+use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CustomerDeviceType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CustomerType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType;
 use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InstallmentCalculationType;
@@ -47,6 +48,15 @@ class RequestBuilder
      */
     public function operation($operation) {
         $this->request->getHead()->getOperation()->setValue($operation);
+        return $this;
+    }
+
+    /**
+     * @param CustomerDeviceType $customerDevice
+     * @return $this
+     */
+    public function customerDevice(CustomerDeviceType $customerDevice) {
+        $this->request->getHead()->setCustomerDevice($customerDevice);
         return $this;
     }
 
