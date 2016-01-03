@@ -3,3 +3,4 @@ composer.lock
 .idea
 test.php
 /vendor/
+phpunit.xml
