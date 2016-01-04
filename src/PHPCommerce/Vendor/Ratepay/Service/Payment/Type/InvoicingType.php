@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type;
 
 use DateTime;
 use JMS\Serializer\Annotation\Type;
@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Class InvoicingType
- * @package PHPCommerce\Vendor\Ratepay\Service\Payment\Type
+ * @package PHPCommerce\Vendor\RatePAY\Service\Payment\Type
  * The invoicing details contain parameters of the invoice and the due date for settlement
  * (German "dynamische Fälligkeit")
  */

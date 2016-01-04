@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\SerializedName;
@@ -33,7 +33,7 @@ class PaymentResponseType {
     /**
      * @var InstallmentDetailsType
      * @SerializedName("installment-details")
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InstallmentDetailsType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\InstallmentDetailsType")
      */
     protected $installmentDetails;
 

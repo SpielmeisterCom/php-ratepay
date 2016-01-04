@@ -1,10 +1,10 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ProcessingType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ExternalType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ProcessingType;
 
 class ResponseHeadType {
     const RESPONSE_TYPE_STATUS_RESPONSE     = 'PAYMENT_STATUS_RESPONSE';
@@ -51,13 +51,13 @@ class ResponseHeadType {
 
     /**
      * @var ExternalType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ExternalType")
      */
     protected $external;
 
     /**
      * @var ProcessingType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ProcessingType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ProcessingType")
      */
     protected $processing;
 

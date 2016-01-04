@@ -1,8 +1,8 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type;
 
 use DateTime;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ContactsType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ContactsType;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlList;

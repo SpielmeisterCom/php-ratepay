@@ -10,21 +10,22 @@ PAYMENT_INIT -> PAYMENT_REQUEST -> PAYMENT_CONFIRM
 ```php
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RatepayException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\GatewayClientImpl;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\RatepayBrokerImpl;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\RatepayConfiguration;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\RatepayCredential;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\AddressType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ContactsType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CustomerType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PaymentType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestHeadType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PhoneType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\RequestType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ShoppingBasketItemType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ShoppingBasketType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\RatePAYException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\GatewayClientImpl;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\RatepayBrokerImpl;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\RatepayConfiguration;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\RatepayCredential;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\AddressType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ContactsType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\CustomerType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ExternalType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\PaymentType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\RequestHeadType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\PhoneType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\RequestType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ShoppingBasketItemType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ShoppingBasketType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\DeviceFingerprintSnippetGenerator;
 
 require_once('vendor/autoload.php');
 
@@ -46,6 +47,8 @@ $ratepayConfiguration = (new RatepayConfiguration())
 $ratepayBroker = new RatepayBrokerImpl($ratepayConfiguration, $client);
 
 try {
+    $fingerprinter = new DeviceFingerprintSnippetGenerator("4R8Pay");
+
     $transactionId = $ratepayBroker->paymentInit();
 
     $paymentRequest = $ratepayBroker->getRequestBuilder()
@@ -113,7 +116,7 @@ try {
 			
     $ratepayBroker->paymentConfirm($transactionId);
 
-} catch (RatepayException $e) {
+} catch (RatePAYException $e) {
     $message = ($e->getCustomerMessage() != "") ?
         $e->getCustomerMessage() : "The RatePAY transaction could not be processed";
 

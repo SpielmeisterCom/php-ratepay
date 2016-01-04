@@ -1,11 +1,11 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response;
 use JMS\Serializer\Annotation\Type;
 
 class PaymentChangeResponseType extends ResponseContentType {
     /**
      * @var PaymentResponseType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\PaymentResponseType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response\PaymentResponseType")
      */
     protected $payment;
 

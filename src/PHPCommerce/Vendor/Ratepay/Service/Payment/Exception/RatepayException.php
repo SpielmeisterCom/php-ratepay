@@ -1,7 +1,7 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Exception;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Exception;
 
-class RatepayException extends \Exception
+class RatePAYException extends \Exception
 {
     protected $reasonCode;
 

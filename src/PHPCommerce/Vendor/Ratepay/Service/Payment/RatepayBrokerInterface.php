@@ -1,12 +1,12 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment;
 
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RatepayException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RejectionException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\TechnicalErrorException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\WarningException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\RatePAYException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\RejectionException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\TechnicalErrorException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\WarningException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response\ResponseType;
 
 interface RatepayBrokerInterface {
 
@@ -17,20 +17,20 @@ interface RatepayBrokerInterface {
 
     /**
      * Initialize new payment transaction and return the transaction id upon success
-     * @throws RatepayException
+     * @throws RatePAYException
      * @throws TechnicalErrorException
      * @return string
      */
     public function paymentInit();
 
     /**
-     * @throws RatepayException
+     * @throws RatePAYException
      * @return ResponseType
      */
     public function paymentRequest($transactionId, RequestType $req);
 
     /**
-     * @throws RatepayException
+     * @throws RatePAYException
      * @throws TechnicalErrorException
      * @throws WarningException
      * @throws RejectionException
@@ -42,7 +42,7 @@ interface RatepayBrokerInterface {
      * @param $transactionId
      * @param $subType
      * @param RequestType $req
-     * @throws RatepayException
+     * @throws RatePAYException
      * @throws TechnicalErrorException
      * @throws WarningException
      * @throws RejectionException
@@ -54,7 +54,7 @@ interface RatepayBrokerInterface {
      * @param $transactionId
      * @param $subType
      * @param RequestType $req
-     * @throws RatepayException
+     * @throws RatePAYException
      * @throws TechnicalErrorException
      * @throws WarningException
      * @throws RejectionException
@@ -63,7 +63,7 @@ interface RatepayBrokerInterface {
     public function confirmationDeliver($transactionId, RequestType $req);
 
     /**
-     * @throws RatepayException
+     * @throws RatePAYException
      * @throws TechnicalErrorException
      * @return ResponseType
      */

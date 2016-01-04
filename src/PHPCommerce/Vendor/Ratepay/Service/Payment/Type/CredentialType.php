@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type;
 use JMS\Serializer\Annotation\SerializedName;
 
 class CredentialType {

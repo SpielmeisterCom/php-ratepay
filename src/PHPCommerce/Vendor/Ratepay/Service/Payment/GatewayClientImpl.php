@@ -1,13 +1,13 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment;
 
 use GuzzleHttp\ClientInterface;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\PaymentPermissionResponseType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response\PaymentPermissionResponseType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response\ResponseType;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
@@ -105,7 +105,7 @@ class GatewayClientImpl implements GatewayClientInterface, LoggerAwareInterface 
 
         $response = $this->serializer->deserialize(
             $rawResponse,
-            'PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType',
+            'PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response\ResponseType',
             'xml'
         );
 

@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Exception;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Exception;
 
 /**
  * This result states that the workflow of the sending system is incorrect. Requests with the result “Warning” will not be processed.
@@ -14,8 +14,8 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Exception;
  * For example: The return of articles is not allowed before a CONFIRMATION_DELIVER was sent.
  *
  * Class TechnicalErrorException
- * @package PHPCommerce\Vendor\Ratepay\Service\Payment\Exception
+ * @package PHPCommerce\Vendor\RatePAY\Service\Payment\Exception
  */
-class WarningException extends RatepayException {
+class WarningException extends RatePAYException {
 
 }

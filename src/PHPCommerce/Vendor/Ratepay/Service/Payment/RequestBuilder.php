@@ -1,18 +1,18 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment;
 
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CredentialType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CustomerDeviceType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\CustomerType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ExternalType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InstallmentCalculationType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\InvoicingType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\OperationType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PaymentType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestContentType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestHeadType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ShoppingBasketType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\CredentialType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\CustomerDeviceType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\CustomerType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ExternalType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\InstallmentCalculationType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\InvoicingType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\OperationType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\PaymentType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestContentType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestHeadType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ShoppingBasketType;
 
 class RequestBuilder
 {

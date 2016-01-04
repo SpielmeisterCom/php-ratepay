@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment;
 
 class DeviceFingerprintSnippetGenerator {
 

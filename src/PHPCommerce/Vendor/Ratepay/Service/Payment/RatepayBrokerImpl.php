@@ -1,13 +1,13 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment;
 
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RatepayException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\RejectionException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\TechnicalErrorException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Exception\WarningException;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\OperationType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestType;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Response\ResponseType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\RatePAYException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\RejectionException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\TechnicalErrorException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Exception\WarningException;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\OperationType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Response\ResponseType;
 
 class RatepayBrokerImpl implements RatepayBrokerInterface {
 
@@ -42,7 +42,7 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
      * @throws RejectionException
      * @throws TechnicalErrorException
      * @throws WarningException
-     * @throws RatepayException
+     * @throws RatePAYException
      */
     protected function validateResponse(ResponseType $res, $successCode, $rejectionCode, $technicalErrorCode, $warningCode) {
         $processing             = $res->getHead()->getProcessing();
@@ -66,7 +66,7 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
             $exception = new WarningException($resultDescription, $resultCode);
 
         } elseif(null !== $successCode && (int)$resultCode !== (int)$successCode) {
-            $exception = new RatepayException($resultDescription, $resultCode);
+            $exception = new RatePAYException($resultDescription, $resultCode);
 
         }
 
@@ -165,7 +165,7 @@ class RatepayBrokerImpl implements RatepayBrokerInterface {
      * @param $transactionId
      * @param $subType
      * @param RequestType $req
-     * @throws RatepayException
+     * @throws RatePAYException
      * @throws TechnicalErrorException
      * @throws WarningException
      * @throws RejectionException

@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Exception;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Exception;
 
 /**
  * This Exception is triggered if a technical error occurred. In most cases this means, that a value within the request is not valid.
@@ -8,8 +8,8 @@ namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Exception;
  * The shop may give the customer the chance to correct his input data and send the request again with the same transaction-id.
  *
  * Class TechnicalErrorException
- * @package PHPCommerce\Vendor\Ratepay\Service\Payment\Exception
+ * @package PHPCommerce\Vendor\RatePAY\Service\Payment\Exception
  */
-class TechnicalErrorException extends RatepayException {
+class TechnicalErrorException extends RatePAYException {
 
 }

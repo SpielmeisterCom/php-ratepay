@@ -1,7 +1,7 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type;
 
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\PhoneType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\PhoneType;
 
 class ContactsType {
     /**

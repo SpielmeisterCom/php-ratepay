@@ -13,11 +13,19 @@
 
     <testsuites>
         <testsuite name="rateoay">
-            <directory>./src/PHPCommerce/Vendor/Ratepay/Service/Payment/Tests</directory>
-            <directory>./src/PHPCommerce/Vendor/Ratepay/Service/Stammkunden/Tests</directory>
+            <directory>./src/PHPCommerce/Vendor/RatePAY/Service/Payment/Tests</directory>
+            <directory>./src/PHPCommerce/Vendor/RatePAY/Service/KnownCustomers/Tests</directory>
         </testsuite>
     </testsuites>
     <php>
+        <const name="PAYMENT_HISTORY_UPLOADER_HOSTNAME" value="files.ratepay.com"/>
+        <const name="PAYMENT_HISTORY_UPLOADER_PORT" value="42139"/>
+        <const name="PAYMENT_HISTORY_UPLOADER_FOLDER" value="to_ratepay/known_customers"/>
+        <const name="PAYMENT_HISTORY_UPLOADER_USERNAME" value=""/>
+        <const name="PAYMENT_HISTORY_UPLOADER_PUB_KEY_FILE" value=""/>
+        <const name="PAYMENT_HISTORY_UPLOADER_PRIV_KEY_FILE" value=""/>
+
         <const name="PHPUNIT_TESTSUITE" value="true"/>
+
     </php>
 </phpunit>

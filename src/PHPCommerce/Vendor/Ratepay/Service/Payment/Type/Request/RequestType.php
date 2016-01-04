@@ -1,11 +1,11 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request;
 
 use PHPCommerce\Vendor\RatePAY\RatePAYCredential;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlAttribute;
-use PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request\RequestHeadType;
+use PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request\RequestHeadType;
 
 /**
  * @XmlRoot("request")

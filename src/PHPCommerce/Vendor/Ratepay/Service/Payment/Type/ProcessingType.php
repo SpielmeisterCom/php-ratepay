@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -14,19 +14,19 @@ class ProcessingType {
 
     /**
      * @var StatusType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\StatusType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\StatusType")
      */
     protected $status;
 
     /**
      * @var ResultType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ResultType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ResultType")
      */
     protected $result;
 
     /**
      * @var ReasonType
-     * @Type("PHPCommerce\Vendor\Ratepay\Service\Payment\Type\ReasonType")
+     * @Type("PHPCommerce\Vendor\RatePAY\Service\Payment\Type\ReasonType")
      */
     protected $reason;
 

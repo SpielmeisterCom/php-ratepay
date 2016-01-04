@@ -1,5 +1,5 @@
 <?php
-namespace PHPCommerce\Vendor\Ratepay\Service\Payment\Type\Request;
+namespace PHPCommerce\Vendor\RatePAY\Service\Payment\Type\Request;
 
 use JMS\Serializer\Annotation\SerializedName;
 
