@@ -18,12 +18,12 @@
         </testsuite>
     </testsuites>
     <php>
-        <const name="PAYMENT_HISTORY_UPLOADER_HOSTNAME" value="files.ratepay.com"/>
-        <const name="PAYMENT_HISTORY_UPLOADER_PORT" value="42139"/>
-        <const name="PAYMENT_HISTORY_UPLOADER_FOLDER" value="to_ratepay/known_customers"/>
-        <const name="PAYMENT_HISTORY_UPLOADER_USERNAME" value=""/>
-        <const name="PAYMENT_HISTORY_UPLOADER_PUB_KEY_FILE" value=""/>
-        <const name="PAYMENT_HISTORY_UPLOADER_PRIV_KEY_FILE" value=""/>
+        <const name="PAYMENT_HISTORY_UPLOAD_HOSTNAME" value="files.ratepay.com"/>
+        <const name="PAYMENT_HISTORY_UPLOAD_PORT" value="42139"/>
+        <const name="PAYMENT_HISTORY_UPLOAD_REMOTE_DIR" value="to_ratepay/known_customers"/>
+        <const name="PAYMENT_HISTORY_UPLOAD_USERNAME" value=""/>
+        <const name="PAYMENT_HISTORY_UPLOAD_PUB_KEY_FILE" value=""/>
+        <const name="PAYMENT_HISTORY_UPLOAD_PRIV_KEY_FILE" value=""/>
 
         <const name="PHPUNIT_TESTSUITE" value="true"/>
 
