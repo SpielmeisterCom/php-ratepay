@@ -11,6 +11,11 @@ class PaymentHistoryCsvFileGeneratorTest extends PHPUnit_Framework_TestCase {
     public function setUp() {
     }
 
+    public function testCsvFilename() {
+        $filename = PaymentHistoryCsvFileGenerator::generateCsvFilename("12345", 1);
+        $this->assertSame("12345_history_" . date("Y-m-d") ."_001.csv", $filename);
+    }
+
     public function testCSV() {
         $instance = new PaymentHistoryCsvFileGenerator();
 

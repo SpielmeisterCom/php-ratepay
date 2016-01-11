@@ -14,6 +14,16 @@ class PaymentHistoryCsvFileGenerator {
         $this->resetCsvData();
     }
 
+    public static function generateCsvFilename($username, $number) {
+        return sprintf(
+            "%s_history_%s_%03d.csv",
+            $username,
+            date('Y-m-d'),
+            $number
+        );
+    }
+
+
     protected function resetCsvData() {
         $this->csvData = [
             ['FileRownumber', 'InterfaceVersion', 'ShopsOrder_ID' , 'ShopsCustomer_ID', 'OrderDate', 'OrderTime',
