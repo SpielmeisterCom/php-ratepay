@@ -11,8 +11,6 @@ class PaymentHistoryCsvFileGenerator {
     protected $csvData;
 
     public function __construct() {
-        $this->fileRowNumber = 1;
-
         $this->resetCsvData();
     }
 
@@ -23,6 +21,8 @@ class PaymentHistoryCsvFileGenerator {
              'CancellationAmount', 'ReturnAmount', 'LoginFlag', 'NewAddressFlag', 'ReturningPeriod'
             ]
         ];
+
+        $this->fileRowNumber = 1;
     }
 
     public function addEntry(PaymentHistoryEntry $entry) {
