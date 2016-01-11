@@ -58,7 +58,7 @@ class PaymentHistoryCsvFileGenerator {
         }
 
         foreach ($this->csvData as $row) {
-            $ret = @fputcsv($fp, $row);
+            $ret = @fputcsv($fp, $row, ';');
 
             if($ret === false) {
                 throw new Exception("Could not write CSV data");
