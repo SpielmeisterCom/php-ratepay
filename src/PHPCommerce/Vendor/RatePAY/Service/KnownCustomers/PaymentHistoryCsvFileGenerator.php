@@ -57,6 +57,12 @@ class PaymentHistoryCsvFileGenerator {
             throw new Exception("Could not open " . $outputFile . " for writing");
         }
 
+        //manually add UTF8 Byte Order Mark to generated document
+        $ret = @fputs($fp, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
+        if($ret === false) {
+            throw new Exception("Could not add BOM to generated csv file");
+        }
+
         foreach ($this->csvData as $row) {
             $ret = @fputcsv($fp, $row, ';', '"');
 

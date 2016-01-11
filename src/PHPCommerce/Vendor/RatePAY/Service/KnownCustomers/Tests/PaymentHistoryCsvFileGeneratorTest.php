@@ -26,6 +26,7 @@ class PaymentHistoryCsvFileGeneratorTest extends PHPUnit_Framework_TestCase {
         $csvContent = file_get_contents($tmpFile);
 
         $this->assertSame(
+            chr(0xEF) . chr(0xBB) . chr(0xBF) . //bom
             "FileRownumber;InterfaceVersion;ShopsOrder_ID;ShopsCustomer_ID;OrderDate;OrderTime;DeliveryDate;PaymentDate;PaymentMethod;Currency;OrderAmount;PaymentAmount;CancellationAmount;ReturnAmount;LoginFlag;NewAddressFlag;ReturningPeriod\r\n" .
             "1;2;;;;;;;;EUR;;;;;;;\r\n",  $csvContent);
 
