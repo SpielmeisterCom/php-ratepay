@@ -12,11 +12,21 @@ class PaymentHistoryCsvFileGenerator {
 
     public function __construct() {
         $this->fileRowNumber = 1;
-        $this->csvData = array();
+
+        $this->resetCsvData();
+    }
+
+    protected function resetCsvData() {
+        $this->csvData = [
+            ['FileRownumber', 'InterfaceVersion', 'ShopsOrder_ID' , 'ShopsCustomer_ID', 'OrderDate', 'OrderTime',
+             'DeliveryDate', 'PaymentDate', 'PaymentMethod', 'Currency', 'OrderAmount', 'PaymentAmount',
+             'CancellationAmount', 'ReturnAmount', 'LoginFlag', 'NewAddressFlag', 'ReturningPeriod'
+            ]
+        ];
     }
 
     public function addEntry(PaymentHistoryEntry $entry) {
-        $entry = array(
+        $entry = [
             $this->fileRowNumber++,
             self::INTERFACE_VERSION,
             $entry->getShopOrderId(),
@@ -34,7 +44,7 @@ class PaymentHistoryCsvFileGenerator {
             $entry->getLoginFlag(),
             $entry->getNewAddressFlag(),
             $entry->getReturningPeriod()
-        );
+        ];
 
         $this->csvData[] = $entry;
     }
@@ -69,6 +79,6 @@ class PaymentHistoryCsvFileGenerator {
         }
 
         //clear internal state
-        $this->csvData = array();
+        $this->resetCsvData();
     }
 }
