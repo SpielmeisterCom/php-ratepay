@@ -16,7 +16,43 @@ class PaymentHistoryCsvFileGeneratorTest extends PHPUnit_Framework_TestCase {
 
         $instance->addEntry(
             (new PaymentHistoryEntry())
+                ->setShopOrderId("123456")
+                ->setShopCustomerId("sci1234")
+                ->setOrderDate("2013-11-03")
+                ->setOrderTime("09:17:24")
+                ->setDeliveryDate("2013-12-03")
+                ->setPaymentDate("2014-01-09")
+                ->setPaymentMethod(PaymentHistoryEntry::PAYMENT_METHOD_INVOICE_VIA_SHOP)
                 ->setCurrency('EUR')
+                ->setOrderAmount(110.00)
+                ->setPaymentAmount(90.00)
+                ->setCancellationAmount(0.00)
+                ->setReturnAmount(0.00)
+                ->setLoginFlag(1)
+                ->setNewAddressFlag(0)
+                ->setReturningPeriod(14)
+
+        );
+
+
+        $instance->addEntry(
+            (new PaymentHistoryEntry())
+                ->setShopOrderId("123456")
+                ->setShopCustomerId("sci1234")
+                ->setOrderDate("2013-11-03")
+                ->setOrderTime("09:17:24")
+                ->setDeliveryDate("2013-12-03")
+                ->setPaymentDate("2014-01-09")
+                ->setPaymentMethod(PaymentHistoryEntry::PAYMENT_METHOD_INVOICE_VIA_SHOP)
+                ->setCurrency('EUR')
+                ->setOrderAmount(110.00)
+                ->setPaymentAmount(90.00)
+                ->setCancellationAmount(0.00)
+                ->setReturnAmount(0.00)
+                ->setLoginFlag(1)
+                ->setNewAddressFlag(0)
+                ->setReturningPeriod(14)
+
         );
 
         $tmpFile = tempnam('/tmp', 'PaymentHistoryCsvFileGeneratorTest');
@@ -28,7 +64,8 @@ class PaymentHistoryCsvFileGeneratorTest extends PHPUnit_Framework_TestCase {
         $this->assertSame(
             chr(0xEF) . chr(0xBB) . chr(0xBF) . //bom
             "FileRownumber;InterfaceVersion;ShopsOrder_ID;ShopsCustomer_ID;OrderDate;OrderTime;DeliveryDate;PaymentDate;PaymentMethod;Currency;OrderAmount;PaymentAmount;CancellationAmount;ReturnAmount;LoginFlag;NewAddressFlag;ReturningPeriod\r\n" .
-            "1;2;;;;;;;;EUR;;;;;;;\r\n",  $csvContent);
+            "1;2;123456;sci1234;2013-11-03;09:17:24;2013-12-03;2014-01-09;INV1;EUR;110;90;0;0;1;0;14\r\n" .
+            "2;2;123456;sci1234;2013-11-03;09:17:24;2013-12-03;2014-01-09;INV1;EUR;110;90;0;0;1;0;14\r\n",  $csvContent);
 
         $calculatedMd5 = file_get_contents($tmpFile . ".md5");
         $this->assertSame(md5($csvContent), $calculatedMd5);
