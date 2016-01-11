@@ -63,6 +63,10 @@ class SFTPClient {
     }
 
     public function upload($localFile, $remoteFile) {
+        if(!$this->sftpSession) {
+            $this->connect();
+        }
+
         $remoteFile = $this->resolvePath($remoteFile);
         $stream = @fopen("ssh2.sftp://" . $this->sftpSession . $remoteFile, 'w');
 
