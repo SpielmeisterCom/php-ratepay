@@ -58,7 +58,7 @@ class PaymentHistoryCsvFileGenerator {
         }
 
         foreach ($this->csvData as $row) {
-            $ret = @fputcsv($fp, $row, ';');
+            $ret = @fputcsv($fp, $row, ';', '"');
 
             if($ret === false) {
                 throw new Exception("Could not write CSV data");
@@ -66,6 +66,17 @@ class PaymentHistoryCsvFileGenerator {
         }
 
         @fclose($fp);
+
+        $csvFileContent = @file_get_contents($outputFile);
+        if(!$csvFileContent) {
+            throw new Exception("Could not read CSV file content");
+        }
+
+        $csvFileContent = str_replace ("\n", "\r\n", $csvFileContent);
+        $ret = @file_put_contents($outputFile, $csvFileContent);
+        if($ret === false) {
+            throw new Exception("Could not write CSV file content");
+        }
 
         //create md5 file
         $md5sum = md5_file($outputFile);

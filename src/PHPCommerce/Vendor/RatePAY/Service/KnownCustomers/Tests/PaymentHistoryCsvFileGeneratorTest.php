@@ -26,8 +26,8 @@ class PaymentHistoryCsvFileGeneratorTest extends PHPUnit_Framework_TestCase {
         $csvContent = file_get_contents($tmpFile);
 
         $this->assertSame(
-            "FileRownumber;InterfaceVersion;ShopsOrder_ID;ShopsCustomer_ID;OrderDate;OrderTime;DeliveryDate;PaymentDate;PaymentMethod;Currency;OrderAmount;PaymentAmount;CancellationAmount;ReturnAmount;LoginFlag;NewAddressFlag;ReturningPeriod\n" .
-            "1;2;;;;;;;;EUR;;;;;;;\n",  $csvContent);
+            "FileRownumber;InterfaceVersion;ShopsOrder_ID;ShopsCustomer_ID;OrderDate;OrderTime;DeliveryDate;PaymentDate;PaymentMethod;Currency;OrderAmount;PaymentAmount;CancellationAmount;ReturnAmount;LoginFlag;NewAddressFlag;ReturningPeriod\r\n" .
+            "1;2;;;;;;;;EUR;;;;;;;\r\n",  $csvContent);
 
         $calculatedMd5 = file_get_contents($tmpFile . ".md5");
         $this->assertSame(md5($csvContent), $calculatedMd5);
