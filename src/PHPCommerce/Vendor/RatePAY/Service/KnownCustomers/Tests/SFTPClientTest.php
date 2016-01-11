@@ -28,7 +28,8 @@ class SFTPClientTest extends PHPUnit_Framework_TestCase {
         fclose($handle);
 
 
-        $remoteFile = PAYMENT_HISTORY_UPLOAD_REMOTE_DIR . "/" . time() . ".txt";
+        //force relative path
+        $remoteFile = time() . ".txt";
 
         $uploader->upload($tmpfname, $remoteFile);
 

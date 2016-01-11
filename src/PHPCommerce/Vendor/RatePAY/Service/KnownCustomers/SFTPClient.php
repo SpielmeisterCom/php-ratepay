@@ -51,7 +51,19 @@ class SFTPClient {
 
     }
 
+    protected function resolvePath($remoteFile) {
+        if(substr($remoteFile, 0, 1) != '/') {
+            //resolve relative path
+            $absolutePath = @ssh2_sftp_realpath($this->sftpSession, ".");
+
+            $remoteFile =  $absolutePath . '/' . $remoteFile;
+        }
+
+        return $remoteFile;
+    }
+
     public function upload($localFile, $remoteFile) {
+        $remoteFile = $this->resolvePath($remoteFile);
         $stream = @fopen("ssh2.sftp://" . $this->sftpSession . $remoteFile, 'w');
 
         if (!$stream) {
@@ -70,6 +82,8 @@ class SFTPClient {
     }
 
     public function delete($remoteFile){
+        $remoteFile = $this->resolvePath($remoteFile);
+
         if(!@unlink("ssh2.sftp://" . $this->sftpSession . $remoteFile)) {
             throw new Exception("Could not unlink file: ".$remoteFile);
         }
