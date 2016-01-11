@@ -70,6 +70,11 @@ class PaymentHistoryEntry {
     /**
      * Payment on Delivery
      */
+    const PAYMENT_METHOD_PAYPAL = 'PAY';
+
+    /**
+     * Payment on Delivery
+     */
     const PAYMENT_METHOD_POD = 'POD';
 
     /**
