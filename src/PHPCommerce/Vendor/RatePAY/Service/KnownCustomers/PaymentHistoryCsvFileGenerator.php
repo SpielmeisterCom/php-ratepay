@@ -85,7 +85,7 @@ class PaymentHistoryCsvFileGenerator {
         }
 
         //create md5 file
-        $md5sum = md5_file($outputFile);
+        $md5sum = @md5_file($outputFile);
         if($md5sum === false) {
             throw new Exception("Could not create MD5 sum of generated CSV file");
         }
