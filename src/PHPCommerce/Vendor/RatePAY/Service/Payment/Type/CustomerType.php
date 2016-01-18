@@ -16,6 +16,131 @@ class CustomerType {
     const GENDER_UNKNOWN = 'U';
 
     /**
+     * GmbH
+     */
+    const COMPANY_TYPE_GMBH = 'GMBH';
+
+    /**
+     * GmbH i.Gr (GmbH in Gründung)
+     */
+    const COMPANY_TYPE_GMBH_I_GR = 'GMBH-I-GR';
+
+    /**
+     * gGmbH (Gemeinnützige GmbH)
+     */
+    const COMPANY_TYPE_GGMBH = 'GGMBH';
+
+    /**
+     * GmbH & Co. KG
+     */
+    const COMPANY_TYPE_GMBH_CO_KG = 'GMBH-CO-KG';
+
+    /**
+     * OHG
+     */
+    const COMPANY_TYPE_OHG = 'OHG';
+
+    /**
+     * KG
+     */
+    const COMPANY_TYPE_KG = 'KG';
+
+    /**
+     * e.V. (Eingetragener Verein)
+     */
+    const COMPANY_TYPE_EV = 'EV';
+
+    /**
+     *  Eingetragene Genossenschaft
+     */
+    const COMPANY_TYPE_EG = 'EG';
+
+    /**
+     *  AG (Aktiengesellschaft)
+     */
+    const COMPANY_TYPE_AG = 'AG';
+
+    /**
+     *  UG (Unternehmergesellschaft)
+     */
+    const COMPANY_TYPE_UG = 'UG';
+
+    /**
+     * UG i.Gr. (Unternehmergesellschaft in Gründung)
+     */
+    const COMPANY_TYPE_UG_I_GR = 'UG-I-GR';
+
+    /**
+     * Einzelunternehmen
+     */
+    const COMPANY_TYPE_EINZELUNTERNEHMER = 'EINZELUNTERNEHMER';
+
+    /**
+     * e.K. (Eingetragener Kaufmann)
+     */
+    const COMPANY_TYPE_EK = 'EK';
+
+    /**
+     * Partnerschaft
+     */
+    const COMPANY_TYPE_PARTNERSCHAFT = 'PARTNERSCHAFT';
+
+    /**
+     * GbR
+     */
+    const COMPANY_TYPE_GBR = 'GBR';
+
+    /**
+     * Anstalt öffentlichen Rechts
+     */
+    const COMPANY_TYPE_AOR = 'AOR';
+
+    /**
+     * Körperschaft öffentlichen Rechts
+     */
+    const COMPANY_TYPE_KOR = 'KOR';
+
+    /**
+     * Stiftung
+     */
+    const COMPANY_TYPE_STIFTUNG = 'STIFTUNG';
+
+    /**
+     * andere (Sammeltyp für alle anderen Geschäftsformen)
+     */
+    const COMPANY_TYPE_OTHER = 'OTHER';
+
+    /**
+     * SE (Europäische Gesellschaft)
+     */
+    const COMPANY_TYPE_SE = 'SE';
+
+    /**
+     * SCE (Europäische Genossenschaft)
+     */
+    const COMPANY_TYPE_SCE = 'SCE';
+
+    /**
+     * OEG (Offene Erwerbsgesellschaft)
+     */
+    const COMPANY_TYPE_OEG = 'OEG';
+
+    /**
+     * Kommanditerwerbsgesellschaft
+     */
+    const COMPANY_TYPE_KEG = 'KEG';
+
+    /**
+     * Einfache Gesellschaft
+     */
+    const COMPANY_TYPE_EINFACHE_GESELLSCHAFT = 'EINFACHE-GESELLSCHAFT';
+
+    /**
+     * Kollektivgesellschaft
+     */
+    const COMPANY_TYPE_KOLLEKTIVGESELLSCHAFT = 'KOLLEKTIVGESELLSCHAFT';
+
+    /**
      * Customer’s first name
      * @var string
      * @SerializedName("first-name")
