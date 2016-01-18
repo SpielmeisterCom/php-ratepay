@@ -257,6 +257,27 @@ class CustomerType {
     protected $companyId;
 
     /**
+     * City of the company’s register court
+     * @var string
+     * @SerializedName("registry-location")
+     */
+    protected $registryLocation;
+
+    /**
+     * Key of the company’s legal form
+     * @var string
+     * @SerializedName("company-type")
+     */
+    protected $companyType;
+
+    /**
+     * The company’s internet presence
+     * @var string
+     * @SerializedName("homepage")
+     */
+    protected $homepage;
+
+    /**
      * @return BankAccountType
      */
     public function getBankAccount()
@@ -561,4 +582,60 @@ class CustomerType {
         $this->addresses = $addresses;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRegistryLocation()
+    {
+        return $this->registryLocation;
+    }
+
+    /**
+     * @param mixed $registryLocation
+     * @return CustomerType
+     */
+    public function setRegistryLocation($registryLocation)
+    {
+        $this->registryLocation = $registryLocation;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompanyType()
+    {
+        return $this->companyType;
+    }
+
+    /**
+     * @param string $companyType
+     * @return CustomerType
+     */
+    public function setCompanyType($companyType)
+    {
+        $this->companyType = $companyType;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHomepage()
+    {
+        return $this->homepage;
+    }
+
+    /**
+     * @param string $homepage
+     * @return CustomerType
+     */
+    public function setHomepage($homepage)
+    {
+        $this->homepage = $homepage;
+        return $this;
+    }
+
+
 }
