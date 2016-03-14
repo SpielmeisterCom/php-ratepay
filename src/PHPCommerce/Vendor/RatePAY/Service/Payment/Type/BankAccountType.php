@@ -57,6 +57,7 @@ class BankAccountType {
     public function setOwner($owner)
     {
         $this->owner = $owner;
+        return $this;
     }
 
     /**
@@ -73,6 +74,7 @@ class BankAccountType {
     public function setBankAccountNumber($bankAccountNumber)
     {
         $this->bankAccountNumber = $bankAccountNumber;
+        return $this;
     }
 
     /**
@@ -89,6 +91,7 @@ class BankAccountType {
     public function setBankName($bankName)
     {
         $this->bankName = $bankName;
+        return $this;
     }
 
     /**
@@ -105,6 +108,7 @@ class BankAccountType {
     public function setBankCode($bankCode)
     {
         $this->bankCode = $bankCode;
+        return $this;
     }
 
     /**
@@ -121,6 +125,7 @@ class BankAccountType {
     public function setIban($iban)
     {
         $this->iban = $iban;
+        return $this;
     }
 
     /**
@@ -137,5 +142,6 @@ class BankAccountType {
     public function setBicSwift($bicSwift)
     {
         $this->bicSwift = $bicSwift;
+        return $this;
     }
 }
