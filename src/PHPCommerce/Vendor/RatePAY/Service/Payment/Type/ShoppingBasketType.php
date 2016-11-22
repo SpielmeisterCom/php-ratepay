@@ -43,6 +43,18 @@ class ShoppingBasketType {
     protected $items;
 
     /**
+     * @XmlList(entry="item")
+     * @var ShoppingBasketExtraType
+     */
+    protected $shipping;
+
+    /**
+     * @XmlList(entry="item")
+     * @var ShoppingBasketExtraType
+     */
+    protected $discount;
+
+    /**
      * @return float
      */
     public function getAmount()
@@ -93,5 +105,36 @@ class ShoppingBasketType {
         return $this;
     }
 
+    /**
+     * @return ShoppingBasketExtraType
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param ShoppingBasketExtraType $discount
+     */
+    public function setDiscount(ShoppingBasketExtraType $discount)
+    {
+        $this->discount = $discount;
+    }
+
+    /**
+     * @return ShoppingBasketExtraType
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
+    }
+
+    /**
+     * @param ShoppingBasketExtraType $shipping
+     */
+    public function setShipping(ShoppingBasketExtraType $shipping)
+    {
+        $this->shipping = $shipping;
+    }
 
 }
