@@ -115,10 +115,14 @@ class ShoppingBasketType {
 
     /**
      * @param ShoppingBasketExtraType $discount
+     *
+     * @return $this
      */
     public function setDiscount(ShoppingBasketExtraType $discount)
     {
         $this->discount = $discount;
+
+        return $this;
     }
 
     /**
@@ -131,10 +135,13 @@ class ShoppingBasketType {
 
     /**
      * @param ShoppingBasketExtraType $shipping
+     *
+     * @return $this
      */
     public function setShipping(ShoppingBasketExtraType $shipping)
     {
         $this->shipping = $shipping;
-    }
 
+        return $this;
+    }
 }
