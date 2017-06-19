@@ -73,6 +73,13 @@ class ShoppingBasketItemType
     protected $descriptionAddition;
 
     /**
+     * Item Specific discount down from the regular price.
+     * @var string
+     * @XmlAttribute
+     */
+    protected $discount;
+
+    /**
      * @return string
      */
     public function getItem()
@@ -205,6 +212,23 @@ class ShoppingBasketItemType
     public function setDescriptionAddition($descriptionAddition)
     {
         $this->descriptionAddition = $descriptionAddition;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param string $discount
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
         return $this;
     }
 }
